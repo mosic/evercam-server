@@ -21,58 +21,8 @@ defmodule EvercamMedia.Mixfile do
   end
 
   def application do
-    [mod: {EvercamMedia, []},
-     applications: app_list(Mix.env)]
+    [mod: {EvercamMedia, []}, extra_applications: [:runtime_tools]]
   end
-
-  defp app_list(:dev), do: [:dotenv, :credo | app_list()]
-  defp app_list(:test), do: [:dotenv | app_list()]
-  defp app_list(_), do: app_list()
-  defp app_list, do: [
-    :calendar,
-    :cf,
-    :bcrypt_elixir,
-    :con_cache,
-    :connection,
-    :cors_plug,
-    :plug_cowboy,
-    :ecto,
-    :ecto_sql,
-    :httpoison,
-    :inets,
-    :jsx,
-    :phoenix_swoosh,
-    :swoosh,
-    :meck,
-    :phoenix,
-    :phoenix_ecto,
-    :phoenix_html,
-    :phoenix_pubsub,
-    :porcelain,
-    :postgrex,
-    :quantum,
-    :runtime_tools,
-    :timex,
-    :tzdata,
-    :erlware_commons,
-    :uuid,
-    :xmerl,
-    :html_sanitize_ex,
-    :gen_stage,
-    :ex_aws,
-    :configparser_ex,
-    :sweet_xml,
-    :phoenix_swagger,
-    :ex_json_schema,
-    :nadia,
-    :geoip,
-    :poolboy,
-    :evercam_models,
-    :joken,
-    :export,
-    :jason,
-    :exexif
-  ]
 
   # Specifies which paths to compile per environment
   defp elixirc_paths(:test), do: ["lib", "test/support"]
